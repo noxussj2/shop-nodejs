@@ -1,0 +1,10 @@
+{
+    "extends": "eslint-config-egg",
+    "root": true,
+    "rules": {
+        /**
+         * 缩进空格
+         */
+        "indent": ["error", 4]
+    }
+}
