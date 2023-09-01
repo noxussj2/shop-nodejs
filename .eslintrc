@@ -1,10 +1,55 @@
 {
-    "extends": "eslint-config-egg",
+    "extends": ["eslint-config-egg"],
     "root": true,
     "rules": {
         /**
          * 缩进空格
          */
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+
+        /**
+         * 不允许多个空行
+         */
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+
+        /**
+         * 最高代码行数
+         */
+        "max-lines": ["error", { "max": 500 }],
+
+        /**
+         * 导入排序
+         */
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": false,
+                "ignoreDeclarationSort": true,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": ["all", "single", "multiple", "none"],
+                "allowSeparatedGroups": false
+            }
+        ],
+
+        /**
+         * 注释间隔
+         */
+        "spaced-comment": ["error", "always", { "markers": ["/"] }],
+
+        /**
+         * 注释换行
+         */
+        "lines-around-comment": [
+            "error",
+            {
+                "beforeBlockComment": true,
+                "beforeLineComment": true
+            }
+        ],
+
+        /**
+         *
+         */
+        "padded-blocks": ["off"]
     }
 }
