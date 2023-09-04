@@ -7,7 +7,7 @@ class _Controller extends Controller {
         const ctx = this.ctx;
         const page = ctx.query.page;
         const results = await ctx.service.banners.list(page);
-        ctx.body = results;
+        ctx.body = results[0];
     }
 }
 

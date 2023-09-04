@@ -2,6 +2,7 @@ const Service = require('egg').Service;
 
 class _Service extends Service {
     async list(page = 1, pageSize = 10, options = { orders: [[ 'createTime', 'desc' ]] }) {
+
         const results = await this.app.mysql.select('tb_products', { orders: options.orders, limit: Number(pageSize), offset: (page - 1) * pageSize });
 
         results.forEach(item => {
@@ -12,6 +13,11 @@ class _Service extends Service {
         });
 
         return results;
+    }
+
+    async count() {
+        const count = await this.app.mysql.count('tb_products');
+        return count;
     }
 }
 

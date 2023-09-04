@@ -10,6 +10,7 @@
         "egg": "^3",
         "egg-mysql": "^4.0.0",
         "egg-scripts": "^2",
+        "egg-validate": "^2.0.2",
         "gulp": "^4.0.2",
         "gulp-sftp-up4": "^0.1.8"
     },
