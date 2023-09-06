@@ -10,16 +10,15 @@ class _Controller extends Controller {
     }
 
     async add() {
-        console.log(this.ctx.request.body);
         this.ctx.validate({
             name: { type: 'string' },
             email: { type: 'string' },
             subject: { type: 'string' },
             message: { type: 'string' },
-        });
+        }, this.ctx.request.body);
 
         const ctx = this.ctx;
-        const results = await ctx.service.contact.add(ctx.query);
+        const results = await ctx.service.contact.add(ctx.request.body);
         ctx.body = results;
     }
 }

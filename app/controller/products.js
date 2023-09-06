@@ -3,6 +3,10 @@
 const { Controller } = require('egg');
 
 class _Controller extends Controller {
+
+    /**
+     * 获取商品列表
+     */
     async index() {
         this.ctx.validate({
             page: { type: 'string' },
@@ -18,6 +22,21 @@ class _Controller extends Controller {
             data: results,
             count,
         };
+    }
+
+    /**
+     * 获取商品详情
+     */
+    async detail() {
+        this.ctx.validate({
+            productId: { type: 'string' },
+        }, this.ctx.params);
+
+        const ctx = this.ctx;
+        const productId = ctx.params.productId;
+
+        const results = await ctx.service.products.detail(productId);
+        ctx.body = results;
     }
 }
 
